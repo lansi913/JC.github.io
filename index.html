@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jie Cao - Homepage</title>
+    <style>
+        body {
+            font-family: 'Georgia', serif; /* 学术界常用的衬线字体 */
+            line-height: 1.6;
+            color: #333;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fcfcfc;
+        }
+        h1, h2, h3 {
+            color: #1a1a1a;
+            font-family: 'Arial', sans-serif;
+        }
+        h1 {
+            border-bottom: 2px solid #333;
+            padding-bottom: 10px;
+            margin-bottom: 5px;
+        }
+        h2 {
+            border-bottom: 1px solid #ccc;
+            padding-bottom: 5px;
+            margin-top: 40px;
+        }
+        a {
+            color: #0366d6;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        .header-info {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+        .profile-text {
+            flex: 1;
+        }
+        .profile-text p {
+            margin: 5px 0;
+        }
+        /* 如果你有头像，可以取消这里的注释并替换图片链接
+        .profile-img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-left: 20px;
+        }
+        */
+        nav {
+            margin-top: 20px;
+            font-family: 'Arial', sans-serif;
+        }
+        nav a {
+            margin-right: 15px;
+            font-weight: bold;
+        }
+        ul.news-list, ul.pub-list {
+            list-style-type: none;
+            padding-left: 0;
+        }
+        ul.news-list li, ul.pub-list li {
+            margin-bottom: 15px;
+        }
+        .date-badge {
+            font-weight: bold;
+            color: #555;
+            margin-right: 10px;
+        }
+        footer {
+            margin-top: 50px;
+            text-align: center;
+            font-size: 0.9em;
+            color: #666;
+            border-top: 1px solid #ccc;
+            padding-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Jie Cao</h1>
+        <div class="header-info">
+            <div class="profile-text">
+                <p><strong>Ph.D. Candidate</strong></p>
+                <p><a href="https://en.sjtu.edu.cn/" target="_blank">Shanghai Jiao Tong University</a></p>
+                <p>Email: <a href="mailto:caojie23@sjtu.edu.cn">your_email@sjtu.edu.cn</a></p>
+                <p>
+                    <a href="https://scholar.google.com/citations?user=X3w3rHkAAAAJ&hl" target="_blank">Google Scholar</a> | 
+                    <a href="https://github.com/[YourGitHubUsername]" target="_blank">GitHub</a> | 
+                    <a href="[Link to your CV PDF]" target="_blank">CV</a>
+                </p>
+            </div>
+            <!-- 
+            <img src="your-profile-photo.jpg" alt="Jie Cao" class="profile-img"> 
+            -->
+        </div>
+
+        <nav>
+            <a href="#about">About</a>
+            <a href="#news">News</a>
+            <a href="#publications">Publications</a>
+            <a href="#academic-services">Academic Services</a>
+        </nav>
+    </header>
+
+    <section id="about">
+        <h2>About Me</h2>
+        <p>
+            I am currently a Ph.D. candidate at Shanghai Jiao Tong University. My research focuses on biomedical engineering, specifically in the area of contactless cardiopulmonary monitoring using microwave and millimeter-wave radar systems. 
+        </p>
+        <p>
+            I am particularly interested in bridging hardware design and advanced data processing, utilizing deep learning and machine learning architectures (such as CNNs and Transformers) to extract reliable physiological signals from radar data. My work also involves scientific programming in Python (NumPy, SciPy, Pandas) for digital filtering, data alignment, and signal modulation.
+        </p>
+    </section>
+
+    <section id="news">
+        <h2>Recent News</h2>
+        <ul class="news-list">
+            <li>
+                <span class="date-badge">[04/2026]</span> 
+                Presented a first-authored paper at the IEEE International Microwave Biomedical Conference (IMBioC) in Cosenza, Italy.
+            </li>
+            <li>
+                <span class="date-badge">[03/2026]</span> 
+                Honored to receive the Outstanding Reviewer recognition from the <em>IEEE Transactions on Instrumentation and Measurement</em>.
+            </li>
+        </ul>
+    </section>
+
+    <section id="publications">
+        <h2>Selected Publications</h2>
+        <p><em>* indicates equal contribution.</em></p>
+        <ul class="pub-list">
+            <li>
+                <strong>Paper Title Here</strong><br>
+                <strong>Jie Cao</strong>, Co-author 1, Co-author 2.<br>
+                <em>IEEE International Microwave Biomedical Conference (IMBioC)</em>, 2026. (Oral Presentation)<br>
+                [<a href="#">PDF</a>] [<a href="#">Code</a>] [<a href="#">DOI</a>]
+            </li>
+            <!-- 添加更多论文 -->
+            <li>
+                <strong>Another Paper Title Here</strong><br>
+                <strong>Jie Cao</strong>, Co-author A.<br>
+                <em>Journal Name Here</em>, Year.<br>
+                [<a href="#">PDF</a>]
+            </li>
+        </ul>
+    </section>
+
+    <section id="academic-services">
+        <h2>Academic Services</h2>
+        <ul>
+            <li><strong>Reviewer:</strong> IEEE Transactions on Instrumentation and Measurement (Outstanding Reviewer, 2026)</li>
+            <li><strong>Reviewer:</strong> [Add other journals/conferences you review for]</li>
+        </ul>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 Jie Cao. Last updated: July 2026.</p>
+    </footer>
+
+</body>
+</html>
