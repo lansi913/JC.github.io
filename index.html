@@ -47,6 +47,15 @@
         .profile-text p {
             margin: 5px 0;
         }
+        /* 新增个人照的 CSS 样式 */
+        .profile-img {
+            width: 140px;
+            height: 180px;
+            border-radius: 8px; /* 边缘微微圆角，更适合证件照/学术照 */
+            object-fit: cover;
+            margin-left: 30px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
         nav {
             margin-top: 20px;
             font-family: 'Arial', sans-serif;
@@ -62,7 +71,6 @@
         ul.edu-list li, ul.patent-list li, ul.service-list li {
             margin-bottom: 15px;
         }
-        /* 论文列表：左图右文 Flex 布局 */
         .pub-list {
             display: flex;
             flex-direction: column;
@@ -90,7 +98,6 @@
             overflow: hidden;
             position: relative;
         }
-        /* 当填入真实图片后，图片将撑满整个盒子 */
         .pub-img-box img {
             width: 100%;
             height: 100%;
@@ -135,6 +142,8 @@
                     <a href="https://github.com/lansi913/JC.github.io/blob/main/%E4%B8%AA%E4%BA%BA%E6%9D%90%E6%96%99/CV_CJ_202607.pdf" target="_blank">CV</a>
                 </p>
             </div>
+            <!-- 在此处填入您的个人照文件名，例如 profile.jpg -->
+            <img src="https://github.com/lansi913/JC.github.io/blob/main/%E4%B8%AA%E4%BA%BA%E6%9D%90%E6%96%99/photo26.jpg" alt="Jie Cao" class="profile-img">
         </div>
 
         <nav>
@@ -149,7 +158,7 @@
     <section id="about">
         <h2>About Me</h2>
         <p>
-            I am currently a Ph.D. candidate in information and communication engineering at Shanghai Jiao Tong University, advised by Prof. Changzhan Gu[cite: 1]. My research interests are mainly in millimetre-wave radar systems and artificial intelligence (AI) algorithms in microwave sensing, especially in biomedicine, human-computer interaction (HCI) and indoor localization[cite: 1].
+            I am currently a Ph.D. candidate in information and communication engineering at Shanghai Jiao Tong University, advised by Prof. Changzhan Gu. My research interests are mainly in millimetre-wave radar systems and artificial intelligence (AI) algorithms in microwave sensing, especially in biomedicine, human-computer interaction (HCI) and indoor localization[cite: 1].
         </p>
         <p>
             I am concerned with the construction of machine learning models with good interpretability and high robustness, including custom pattern recognition models dominated by kernel method and Bayesian inference, and the construction of multimodal big models driven by neural networks[cite: 1].
@@ -162,7 +171,7 @@
             <li>
                 <strong>Shanghai Jiao Tong University (SJTU)</strong><br>
                 Ph.D. in Information and Communication Engineering<br>
-                <em>Sep. 2023 – Present</em> | Advised by Prof. Changzhan Gu[https://changzhan.sjtu.edu.cn/]
+                <em>Sep. 2023 – Present</em> | Advised by Prof. <a href="https://changzhan.sjtu.edu.cn/" target="_blank">Changzhan Gu</a>
             </li>
             <li>
                 <strong>Harbin Institute of Technology, Shenzhen (HITSZ)</strong><br>
@@ -181,13 +190,12 @@
             <div class="pub-item">
                 <div class="pub-img-box">
                     <span>Image<br>150x100</span>
-                    <!-- <img src="your-image-link.jpg" alt="Figure"> 填入真实链接后取消注释 -->
                 </div>
                 <div class="pub-content">
                     <p><strong>Unobtrusive Cardiac Activity Monitoring Using Millimetre-Wave Radar: Principles, Applications, and Perspectives</strong>[cite: 1]</p>
-                    <p>Y. Li, <strong>Jie Cao</strong>, and C. Gu.[cite: 1]</p>
+                    <p>Y. Li, <strong>Jie Cao</strong>, and C. Gu</a>.[cite: 1]</p>
                     <p><em>Bioelectromagnetics in Medicine</em>, 2026.[cite: 1]</p>
-                    <p class="pub-links">[<a href="#">PDF</a>] [<a href="#">DOI</a>]</p>
+                    <p class="pub-links">[<a href="#">PDF</a>] [<a href="#">Code</a>] [<a href="#">DOI</a>]</p>
                 </div>
             </div>
 
@@ -200,7 +208,7 @@
                     <p><strong>Millimeter-Wave Radar-Based Unobtrusive Arrhythmia Classification Using Deep Learning</strong>[cite: 1]</p>
                     <p>Y. Li, Z. Huang, <strong>Jie Cao</strong>, X. Xu, Q. Chen, L. Zhang, and C. Gu.[cite: 1]</p>
                     <p><em>56th EuMC</em>, London, UK, Oct. 2026.[cite: 1]</p>
-                    <p class="pub-links">[<a href="#">PDF</a>] [<a href="#">Code</a>]</p>
+                    <p class="pub-links">[<a href="#">PDF</a>] [<a href="#">Code</a>] [<a href="#">DOI</a>]</p>
                 </div>
             </div>
 
@@ -213,7 +221,7 @@
                     <p><strong>Non-Contact Cardiac Activity Monitoring via mmWave Radar for Arrhythmia Recognition and STI Estimation</strong>[cite: 1]</p>
                     <p>Y. Li, Z. Huang, <strong>Jie Cao</strong>, X. Xu, Q. Chen, X. Yuan, J. Chen, L. Zhang, and C. Gu.[cite: 1]</p>
                     <p><em>IEEE MTT-S IWS</em>, Shenzhen, China, May 2026.[cite: 1]</p>
-                    <p class="pub-links">[<a href="#">PDF</a>] [<a href="#">DOI</a>]</p>
+                    <p class="pub-links">[<a href="#">PDF</a>] [<a href="#">Code</a>] [<a href="#">DOI</a>]</p>
                 </div>
             </div>
 
@@ -226,7 +234,7 @@
                     <p><strong>Non-contact Detection of Cheyne-Stokes Respiration and Sighs with Biomedical Microwave Radar</strong>[cite: 1]</p>
                     <p>M. Yuan, <strong>Jie Cao</strong>, L. Wang and C. Gu.[cite: 1]</p>
                     <p><em>IEEE MTT-S IWS</em>, Shenzhen, China, May 2026.[cite: 1]</p>
-                    <p class="pub-links">[<a href="#">PDF</a>]</p>
+                    <p class="pub-links">[<a href="#">PDF</a>] [<a href="#">Code</a>] [<a href="#">DOI</a>]</p>
                 </div>
             </div>
 
@@ -239,7 +247,7 @@
                     <p><strong>Contactless Detection of Atrial Fibrillation in Stroke Patients Based on Bayes Probability Model with Microwave Biomedical Radar</strong>[cite: 1]</p>
                     <p><strong>Jie Cao</strong>, L. Wen, L. Wang and C. Gu.[cite: 1]</p>
                     <p><em>IEEE IMBioC</em>, Cosenza, Italy, Apr. 2026.[cite: 1]</p>
-                    <p class="pub-links">[<a href="#">PDF</a>] [<a href="#">Code</a>]</p>
+                    <p class="pub-links">[<a href="https://ieeexplore.ieee.org/document/11177955">link</a>]</p>
                 </div>
             </div>
 
@@ -252,7 +260,7 @@
                     <p><strong>Contactless Cardiac Detection of Arrhythmia based on Distribution Encoding Network with Microwave Biomedical Radar</strong>[cite: 1]</p>
                     <p><strong>Jie Cao</strong>, L. Wen, S. Dong, Y. Li, L. Wu, Y. Guo, Z. Zeng, Q. Cao, K. Chen and C. Gu.[cite: 1]</p>
                     <p><em>IEEE TMTT</em>, vol. 74, no. 4, pp. 3135–3148, Apr. 2026.[cite: 1]</p>
-                    <p class="pub-links">[<a href="#">PDF</a>] [<a href="#">DOI</a>]</p>
+                    <p class="pub-links">[<a href="#">PDF</a>] [<a href="#">Code</a>] [<a href="#">DOI</a>]</p>
                 </div>
             </div>
 
@@ -265,7 +273,7 @@
                     <p><strong>Robust and Adaptive DC Offset Calibration in Microwave Sensing Systems for Long-Term Microwave Cardiogram Detection</strong>[cite: 1]</p>
                     <p>L. Wen, <strong>Jie Cao</strong>, Y. Guo, Z. Zeng, Q. Cao, K. Chen and C. Gu.[cite: 1]</p>
                     <p><em>IEEE TMTT</em>, vol. 74, no. 2, pp. 1756–1769, Feb. 2026.[cite: 1]</p>
-                    <p class="pub-links">[<a href="#">PDF</a>] [<a href="#">DOI</a>]</p>
+                    <p class="pub-links">[<a href="#">PDF</a>] [<a href="#">Code</a>] [<a href="#">DOI</a>]</p>
                 </div>
             </div>
 
@@ -278,7 +286,7 @@
                     <p><strong>A Knowledge-Fusion Deep Learning Approach for Premature Beat Classification Using mmWave Radar in Clinical Settings</strong>[cite: 1]</p>
                     <p>Y. Li, G. Xue, <strong>Jie Cao</strong>, X. Xu, Q. Chen, L. Zhang and C. Gu.[cite: 1]</p>
                     <p><em>IEEE APMC</em>, Jeju Island, Korea, Dec. 2025.[cite: 1]</p>
-                    <p class="pub-links">[<a href="#">PDF</a>]</p>
+                    <p class="pub-links">[<a href="#">PDF</a>] [<a href="#">Code</a>] [<a href="#">DOI</a>]</p>
                 </div>
             </div>
 
@@ -291,7 +299,7 @@
                     <p><strong>Accurate Phase Accumulation Technique under Vector Cross-multiplication Framework for High-accuracy Displacement Motion Sensing</strong>[cite: 1]</p>
                     <p><strong>Jie Cao</strong>, J. Liu, K. Zheng and C. Gu.[cite: 1]</p>
                     <p><em>IEEE TMTT</em>, vol. 73, no. 11, pp. 9279-9291, Nov. 2025.[cite: 1]</p>
-                    <p class="pub-links">[<a href="#">PDF</a>] [<a href="#">DOI</a>]</p>
+                    <p class="pub-links">[<a href="#">PDF</a>] [<a href="#">Code</a>] [<a href="#">DOI</a>]</p>
                 </div>
             </div>
 
@@ -304,7 +312,7 @@
                     <p><strong>Arrhythmia Classification Based on Distribution Encoding Network with Biomedical Radar</strong>[cite: 1]</p>
                     <p><strong>Jie Cao</strong>, L. Wen, S. Dong, M. Tang, Y. Guo, C. Shen and C. Gu.[cite: 1]</p>
                     <p><em>IEEE MTT-S IMWS-AMP</em>, Wuxi, China, Jul. 2025.[cite: 1]</p>
-                    <p class="pub-links">[<a href="#">PDF</a>]</p>
+                    <p class="pub-links">[<a href="#">PDF</a>] [<a href="#">Code</a>] [<a href="#">DOI</a>]</p>
                 </div>
             </div>
 
@@ -317,7 +325,7 @@
                     <p><strong>Utilizing Biomedical Radar in Clinical Doppler Cardiographic Detection of Atrial Arrhythmias</strong>[cite: 1]</p>
                     <p>L. Wen, <strong>Jie Cao</strong>, Z. Zeng, Q. Cao, K. Chen and C. Gu.[cite: 1]</p>
                     <p><em>IEEE MTT-S IWS</em>, Xi'an, China, May 2025.[cite: 1]</p>
-                    <p class="pub-links">[<a href="#">PDF</a>]</p>
+                    <p class="pub-links">[<a href="#">PDF</a>] [<a href="#">Code</a>] [<a href="#">DOI</a>]</p>
                 </div>
             </div>
 
@@ -330,7 +338,7 @@
                     <p><strong>Noncontact Atrial Fibrillation Detection Utilizing Convolutional Neural Network Based on Doppler Biomedical Radar</strong>[cite: 1]</p>
                     <p>W. Gao, L. Meng, <strong>Jie Cao</strong>, L. Wen, Z. Zi, Q. Cao, K. Chen and C. Gu.[cite: 1]</p>
                     <p><em>ICMMT</em>, Xi'an, China, May 2025.[cite: 1]</p>
-                    <p class="pub-links">[<a href="#">PDF</a>]</p>
+                    <p class="pub-links">[<a href="#">PDF</a>] [<a href="#">Code</a>] [<a href="#">DOI</a>]</p>
                 </div>
             </div>
 
@@ -343,7 +351,7 @@
                     <p><strong>Displacement Motion Detection Based on Accurate Phase Accumulation Technique with Reduced Sampling Rate</strong>[cite: 1]</p>
                     <p><strong>Jie Cao</strong>, J. Liu, K. Zheng and C. Gu.[cite: 1]</p>
                     <p><em>IEEE MTT-S IWS</em>, Xi'an, China, May 2025.[cite: 1]</p>
-                    <p class="pub-links">[<a href="#">PDF</a>]</p>
+                    <p class="pub-links">[<a href="#">PDF</a>] [<a href="#">Code</a>] [<a href="#">DOI</a>]</p>
                 </div>
             </div>
 
@@ -356,7 +364,7 @@
                     <p><strong>Microwave Bio-Radar Monitoring of Gene-controlled Activity Changes of Normal and Mouth-breathing Rats</strong>[cite: 1]</p>
                     <p><strong>Jie Cao</strong>, S. Dong, S. Li, X. Wang, M. Zhu and C. Gu.[cite: 1]</p>
                     <p><em>IEEE MTT-S IWS</em>, Xi'an, China, May 2025.[cite: 1]</p>
-                    <p class="pub-links">[<a href="#">PDF</a>]</p>
+                    <p class="pub-links">[<a href="#">PDF</a>] [<a href="#">Code</a>] [<a href="#">DOI</a>]</p>
                 </div>
             </div>
 
@@ -364,13 +372,12 @@
             <div class="pub-item">
                 <div class="pub-img-box">
                     <span>Image<br>150x100</span>
-                    <img src="https://github.com/lansi913/JC.github.io/blob/main/%E8%AE%BA%E6%96%87%E5%9B%BE%E7%89%87/%E7%94%B5%E5%AD%90%E6%B5%8B%E9%87%8F%E6%8A%80%E6%9C%AF.jpg" alt="Figure"> 填入真实链接后取消注释
                 </div>
                 <div class="pub-content">
                     <p><strong>基于匹配滤波的非接触生命体征测量</strong>[cite: 1]</p>
                     <p><strong>曹杰</strong>，温力，唐敏，郭宜竞，顾昌展.[cite: 1]</p>
                     <p><em>电子测量技术</em>, 2025, 48(01):39-45.[cite: 1]</p>
-                    <p class="pub-links">[<a href="https://link.cnki.net/doi/10.19651/j.cnki.emt.2416992">link</a>]</p>
+                    <p class="pub-links"> [<a href="https://link.cnki.net/doi/10.19651/j.cnki.emt.2416992">Link</a>] </p>
                 </div>
             </div>
 
@@ -383,7 +390,7 @@
                     <p><strong>A Novel Contactless Concentration Evaluation Technique Using Millimeter-Wave Radar</strong>[cite: 1]</p>
                     <p><strong>Jie Cao</strong>, Y. Li, J. Liu, and C. Gu.[cite: 1]</p>
                     <p><em>ICMMT</em>, Beijing, China, May 2024.[cite: 1]</p>
-                    <p class="pub-links">[<a href="#">PDF</a>]</p>
+                    <p class="pub-links">[<a href="#">PDF</a>] [<a href="#">Code</a>] [<a href="#">DOI</a>]</p>
                 </div>
             </div>
 
