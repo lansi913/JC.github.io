@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <link rel="stylesheet" href="style.css">
     <meta charset="UTF-8">
@@ -15,73 +16,187 @@
             padding: 20px;
             background-color: #fcfcfc;
         }
-        h1, h2, h3 {
+
+        h1,
+        h2,
+        h3 {
             color: #1a1a1a;
             font-family: 'Arial', sans-serif;
         }
+
         h1 {
             border-bottom: 2px solid #333;
             padding-bottom: 10px;
             margin-bottom: 5px;
         }
-        h2 {
-            border-bottom: 1px solid #ccc;
-            padding-bottom: 5px;
-            margin-top: 40px;
-        }
+
         a {
             color: #0366d6;
             text-decoration: none;
         }
+
         a:hover {
             text-decoration: underline;
         }
+
         .header-info {
             display: flex;
             justify-content: space-between;
             align-items: center;
             margin-bottom: 30px;
         }
+
         .profile-text {
             flex: 1;
         }
+
         .profile-text p {
             margin: 5px 0;
         }
-        /* 新增个人照的 CSS 样式 */
+
+        /* 个人照的 CSS 样式 */
         .profile-img {
             width: 140px;
             height: 180px;
-            border-radius: 8px; /* 边缘微微圆角，更适合证件照/学术照 */
+            border-radius: 8px;
             object-fit: cover;
             margin-left: 30px;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
+
         nav {
             margin-top: 20px;
+            margin-bottom: 20px;
             font-family: 'Arial', sans-serif;
         }
+
         nav a {
             margin-right: 15px;
             font-weight: bold;
         }
-        ul.edu-list, ul.patent-list, ul.service-list {
+
+        /* 折叠面板 (details & summary) 样式 */
+        section {
+            margin-top: 25px;
+        }
+
+        details.section-details>summary {
+            list-style: none;
+            cursor: pointer;
+            border-bottom: 1px solid #ccc;
+            padding-bottom: 5px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            user-select: none;
+            transition: background-color 0.2s ease;
+        }
+
+        details.section-details>summary::-webkit-details-marker {
+            display: none;
+        }
+
+        details.section-details>summary:hover {
+            background-color: #f5f5f5;
+            border-radius: 4px 4px 0 0;
+        }
+
+        details.section-details>summary h2 {
+            margin: 0;
+            border-bottom: none;
+            padding-bottom: 0;
+            font-size: 1.5em;
+            display: inline-block;
+        }
+
+        details.section-details>summary::after {
+            content: '▼';
+            font-size: 0.85em;
+            color: #666;
+            margin-right: 8px;
+            transition: transform 0.25s ease;
+        }
+
+        details.section-details:not([open])>summary::after {
+            transform: rotate(-90deg);
+        }
+
+        .section-content {
+            padding-top: 15px;
+        }
+
+        /* Publications 下的子折叠分类 (Journals / Conferences) 样式 */
+        details.pub-category {
+            margin-top: 15px;
+            margin-bottom: 25px;
+            border-left: 3px solid #0366d6;
+            padding-left: 15px;
+        }
+
+        details.pub-category>summary {
+            list-style: none;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background-color: #f1f5f9;
+            padding: 8px 14px;
+            border-radius: 6px;
+            user-select: none;
+            transition: background-color 0.2s ease;
+        }
+
+        details.pub-category>summary::-webkit-details-marker {
+            display: none;
+        }
+
+        details.pub-category>summary:hover {
+            background-color: #e2e8f0;
+        }
+
+        details.pub-category>summary h3 {
+            margin: 0;
+            font-size: 1.15em;
+            color: #0366d6;
+        }
+
+        details.pub-category>summary::after {
+            content: '▼';
+            font-size: 0.75em;
+            color: #0366d6;
+            transition: transform 0.25s ease;
+        }
+
+        details.pub-category:not([open])>summary::after {
+            transform: rotate(-90deg);
+        }
+
+        ul.edu-list,
+        ul.patent-list,
+        ul.service-list {
             list-style-type: none;
             padding-left: 0;
+            margin-top: 0;
         }
-        ul.edu-list li, ul.patent-list li, ul.service-list li {
+
+        ul.edu-list li,
+        ul.patent-list li,
+        ul.service-list li {
             margin-bottom: 15px;
         }
+
         .pub-list {
             display: flex;
             flex-direction: column;
             gap: 25px;
             margin-top: 20px;
         }
+
         .pub-item {
             display: flex;
             align-items: flex-start;
         }
+
         .pub-img-box {
             width: 150px;
             height: 100px;
@@ -99,6 +214,7 @@
             overflow: hidden;
             position: relative;
         }
+
         .pub-img-box img {
             width: 100%;
             height: 100%;
@@ -106,17 +222,22 @@
             position: absolute;
             top: 0;
             left: 0;
+            cursor: pointer;
         }
+
         .pub-content {
             flex: 1;
         }
+
         .pub-content p {
             margin: 3px 0;
         }
+
         .pub-links {
             font-size: 0.9em;
             margin-top: 5px;
         }
+
         footer {
             margin-top: 50px;
             text-align: center;
@@ -128,21 +249,28 @@
         }
     </style>
 </head>
+
 <body>
 
     <header>
         <h1>Jie Cao</h1>
         <div class="header-info">
             <div class="profile-text">
-                <p><strong>Ph.D. Candidate</strong></p>
-                <p>Shanghai Jiao Tong University</p>
+                <p></p>
+                <p><strong>Ph.D. Candidate in Information and Communication Engineering</strong></p>
+                <p><i>
+                    Microwave Wireless Sensing Lab, Shanghai Jiao Tong University
+                </i></p>
+                <p>My research explores AI for microwave sensing.</p>
                 <p>Email: <a href="mailto:caojie23@sjtu.edu.cn">caojie23@sjtu.edu.cn</a></p>
                 <p>
-                    <a href="https://scholar.google.com/citations?user=X3w3rHkAAAAJ&hl" target="_blank">Google Scholar</a> | 
+                    <a href="https://scholar.google.com/citations?user=X3w3rHkAAAAJ&hl" target="_blank">Google
+                        Scholar</a> |
                     <a href="https://github.com/lansi913" target="_blank">GitHub</a> |
                     <a href="https://www.linkedin.com/in/jie-cao-0912813b5/" target="_blank">LinkedIn</a> |
-                    <a href="https://orcid.org/my-orcid?orcid=0009-0006-7668-8931" target="_blank">ORCID</a> | 
-                    <a href="https://github.com/lansi913/JC.github.io/blob/main/assets/CV_CJ_202607.pdf" target="_blank">CV</a>
+                    <a href="https://orcid.org/my-orcid?orcid=0009-0006-7668-8931" target="_blank">ORCID</a> |
+                    <a href="https://github.com/lansi913/JC.github.io/blob/main/assets/CV_CJ_202607.pdf"
+                        target="_blank">CV</a>
                 </p>
             </div>
             <img src="assets/formal_photo.jpg" alt="Jie Cao" class="profile-img">
@@ -151,8 +279,8 @@
         <nav>
             <a href="#about">About</a>
             <a href="#research-interests">Interests</a>
-            <a href="#education">Education</a>
             <a href="#research-experience">Experience</a>
+            <a href="#education">Education</a>
             <a href="#publications">Publications</a>
             <a href="#patents">Patents</a>
             <a href="#grants-awards">Grants & Awards</a>
@@ -161,310 +289,524 @@
     </header>
 
     <section id="about">
-        <h2>About Me 👋</h2>
-        <p>
-            I am currently a Ph.D. candidate in information and communication engineering at Shanghai Jiao Tong University, advised by Prof. Changzhan Gu. My research interests are mainly in millimetre-wave radar systems and artificial intelligence (AI) algorithms in microwave sensing, especially in biomedicine, human-computer interaction (HCI) and indoor localization.
-        </p>
-        <p>
-            I am concerned with the construction of machine learning models with good interpretability and high robustness, including custom pattern recognition models dominated by kernel method and Bayesian inference, and the construction of multimodal big models driven by neural networks.
-        </p>
-        <p>
-            I have had <strong>16</strong> papers accepted for publication, including two in which I was the first author in TMTT, and I have six
-            published patent applications (all ranked second). During my undergraduate studies, I served as a president of the student union at my campus and gained extensive experience in organizing student activities. I enjoy writing,
-            photography, music, and running in my free time.
-        </p>
+        <!-- <details class="section-details" open> -->
+        <details class="section-details">
+            <summary>
+                <h2>About Me ☺️</h2>
+            </summary>
+            <div class="section-content">
+                <p>
+                    I am currently a Ph.D. candidate in information and communication engineering at Shanghai Jiao Tong
+                    University, advised by Prof. Changzhan Gu. My research interests are mainly in millimetre-wave radar
+                    systems and artificial intelligence (AI) algorithms in microwave sensing, especially in biomedicine,
+                    human-computer interaction (HCI) and indoor localization.
+                </p>
+                <p>
+                    I am concerned with the construction of machine learning models with good interpretability and high
+                    robustness, including custom pattern recognition models dominated by kernel method and Bayesian
+                    inference, and the construction of multimodal big models driven by neural networks. More generally, 
+                    I have broad research interests in smart sensing hardware, interpretable physiological signal processing
+                    and pattern recognition, as well as general AI models developed based on multimodal data and the “scaling law.”
+                </p>
+                <p>
+                    I have had 15+ papers accepted for publication, including three first-author journal papers in in IEEE TMTT / EMScience, and I have two
+                    granted Chinese patent applications. The first is “A Millimeter-Wave-Based Method and System for Concentration Evaluation, and the second is “A Radio
+                    Frequency-Based Monitoring System for Children Mouth Breathing.” As a presenter, I have also been recognized with the Best Student Paper Award 
+                    at both the 2025 IEEE IWS and IMWS-AMP conferences.
+                </p>
+                <p></p>
+                    I am a reviewer for the IEEE flagship journals TMTT / JBHI / TIM, and I was recognized as an Outstanding Reviewer for
+                    TIM in 2025. During my undergraduate studies, I served as a
+                    president of the student union at my campus and gained extensive experience in organizing student
+                    activities. I enjoy writing, photography, music, and running in my free time.
+                </p>
+            </div>
+        </details>
     </section>
 
     <section id="research-interests">
-        <h2>Research Interests 🔍️</h2>
-        <p>
-            Microwave sensing, Artificial intelligence algorithm, Microwave biomedical radar system, Contactless cardiopulmonary
-            disease prediction, Human-computer interaction
-        </p>
+        <details class="section-details">
+            <summary>
+                <h2>Research Interests 🔍️</h2>
+            </summary>
+            <div class="section-content">
+                <p>
+                    Microwave sensing, Artificial intelligence algorithm, Microwave biomedical radar system, Contactless
+                    cardiopulmonary disease prediction, Human-computer interaction
+                </p>
+            </div>
+        </details>
     </section>
 
-        <section id="research-experience">
-            <h2>Research Experience 🛠️</h2>
-            <ul class="edu-list">
-                <li>
-                    <strong>Shanghai Jiao Tong University (Shanghai)</strong><br><a href="https://en.sjtu.edu.cn/"
-                        target="_blank">(SJTU)</a>
-                    PhD student<br>
-                    <em>Sep. 2023 – Present</em> | Millimetre-wave radar systems, AI algorithms in microwave sensing
-                </li>
-                <li>
-                    <strong>Shanghai Artificial Intelligence Laboratory (Shanghai)</strong><br><a href="https://www.shlab.org.cn/"
-                        target="_blank">(PJLAB)</a>
-                    Intern<br>
-                    <em>Aug. 2023 – Jul. 2024</em> | Millimeter-wave radar-based non-contact gesture interaction
-                </li>
-            </ul>
-        </section>
+    <section id="research-experience">
+        <details class="section-details">
+            <summary>
+                <h2>Research Experience 🛠️</h2>
+            </summary>
+            <div class="section-content">
+                <ul class="edu-list">
+                    <li>
+                        <strong>Shanghai Jiao Tong University (Shanghai)</strong><br><a href="https://en.sjtu.edu.cn/"
+                            target="_blank">(SJTU)</a>
+                        PhD student<br>
+                        <em>Sep. 2023 – Present</em> | Millimetre-wave radar systems, AI algorithms in microwave sensing
+                    </li>
+                    <li>
+                        <strong>Shanghai Artificial Intelligence Laboratory (Shanghai)</strong><br><a
+                            href="https://www.shlab.org.cn/" target="_blank">(PJLAB)</a>
+                        Intern<br>
+                        <em>Aug. 2023 – Jul. 2024</em> | Millimeter-wave radar-based non-contact gesture interaction
+                    </li>
+                </ul>
+            </div>
+        </details>
+    </section>
 
     <section id="education">
-        <h2>Education🎓</h2>
-        <ul class="edu-list">
-            <li>
-                <strong>Shanghai Jiao Tong University</strong><br><a href="https://en.sjtu.edu.cn/" target="_blank">(SJTU)</a>
-                Ph.D. in Information and Communication Engineering<br>
-                <em>Sep. 2023 – Present</em> | Advised by Prof. <a href="https://changzhan.sjtu.edu.cn/" target="_blank">Changzhan Gu</a>
-            </li>
-            <li>
-                <strong>Harbin Institute of Technology, Shenzhen</strong><br><a href="http://en.hitsz.edu.cn/" target="_blank">(HITSZ)</a>
-                B.E. in Communication Engineering<br>
-                <em>Aug. 2019 – Jun. 2023</em>
-            </li>
-        </ul>
+        <details class="section-details">
+            <summary>
+                <h2>Education 🎓</h2>
+            </summary>
+            <div class="section-content">
+                <ul class="edu-list">
+                    <li>
+                        <strong>Shanghai Jiao Tong University</strong><br><a href="https://en.sjtu.edu.cn/"
+                            target="_blank">(SJTU)</a>
+                        Ph.D. in Information and Communication Engineering<br>
+                        <em>Sep. 2023 – Present (Expected Jun. 2028)</em> | Advised by Prof. <a href="https://changzhan.sjtu.edu.cn/"
+                            target="_blank">Changzhan Gu</a>
+                    </li>
+                    <li>
+                        <strong>Harbin Institute of Technology, Shenzhen</strong><br><a href="http://en.hitsz.edu.cn/"
+                            target="_blank">(HITSZ)</a>
+                        B.E. in Communication Engineering<br>
+                        <em>Aug. 2019 – Jun. 2023</em>
+                    </li>
+                </ul>
+            </div>
+        </details>
     </section>
 
-<section id="publications">
-        <h2>Publications 📑</h2>
-        <!-- <p><em>* indicates equal contribution.</em></p> -->
-        
-        <div class="pub-list">
-            <!-- [16] -->
-            <!-- <div class="pub-item">
-                <div class="pub-img-box">
-                    <span>Image<br>150x100</span>
-                </div>
-                <div class="pub-content">
-                    <p><strong>Unobtrusive Cardiac Activity Monitoring Using Millimetre-Wave Radar: Principles, Applications, and Perspectives</strong></p>
-                    <p>Y. Li, <strong>Jie Cao</strong>, and C. Gu.</p>
-                    <p><strong>[Journal]</strong> <em>Bioelectromagnetics in Medicine</em>, 2026.</p>
-                    <p class="pub-links">[<a href="#">Link</a>]</p>
-                </div>
-            </div> -->
+    <section id="publications">
+        <details class="section-details">
+            <summary>
+                <h2>Publications 📑</h2>
+            </summary>
+            <div class="section-content">
+                <!-- <p><em>* indicates equal contribution.</em></p> -->
 
-            <!-- [15] -->
-            <!-- <div class="pub-item">
-                <div class="pub-img-box">
-                    <span>Image<br>150x100</span>
-                </div>
-                <div class="pub-content">
-                    <p><strong>Millimeter-Wave Radar-Based Unobtrusive Arrhythmia Classification Using Deep Learning</strong></p>
-                    <p>Y. Li, Z. Huang, <strong>Jie Cao</strong>, X. Xu, Q. Chen, L. Zhang, and C. Gu.</p>
-                    <p><strong>[Conference]</strong> <em>56th EuMC</em>, London, UK, Oct. 2026.</p>
-                    <p class="pub-links">[<a href="#">Link</a>]</p>
-                </div>
-            </div> -->
+                <!-- ==================== Journal Articles ==================== -->
+                <details class="pub-category" open>
+                    <summary>
+                        <h3>Journal Articles (6)</h3>
+                    </summary>
+                    <div class="pub-list">
 
-            <!-- [14] -->
-            <!-- <div class="pub-item">
-                <div class="pub-img-box">
-                    <span>Image<br>150x100</span>
-                </div>
-                <div class="pub-content">
-                    <p><strong>Non-Contact Cardiac Activity Monitoring via mmWave Radar for Arrhythmia Recognition and STI Estimation</strong></p>
-                    <p>Y. Li, Z. Huang, <strong>Jie Cao</strong>, X. Xu, Q. Chen, X. Yuan, J. Chen, L. Zhang, and C. Gu.</p>
-                    <p><strong>[Conference]</strong> <em>IEEE MTT-S IWS</em>, Shenzhen, China, May 2026.</p>
-                    <p class="pub-links">[<a href="#">Link</a>]</p>
-                </div>
-            </div> -->
+                        <!-- [16] -->
+                        <!-- <div class="pub-item">
+                            <div class="pub-img-box">
+                                <span>Image<br>150x100</span>
+                            </div>
+                            <div class="pub-content">
+                                <p><strong>Unobtrusive Cardiac Activity Monitoring Using Millimetre-Wave Radar: Principles, Applications, and Perspectives</strong></p>
+                                <p>Y. Li, <strong>Jie Cao</strong>, and C. Gu.</p>
+                                <p><strong>[Journal]</strong> <em>Bioelectromagnetics in Medicine</em>, 2026.</p>
+                                <p class="pub-links">[<a href="#">Link</a>]</p>
+                            </div>
+                        </div> -->
+                        <!-- [11] -->
+                        <div class="pub-item">
+                            <div class="pub-img-box">
+                                <img src="paper_pics/ES2026.jpg"
+                                    alt="Radio Frequency Sensing with Genetic Manifestations for Assessing Circadian Rhythm Dysregulation from Mouth Breathing"
+                                    class="responsive-img">
+                            </div>
+                            <div class="pub-content">
+                                <p><strong>Radio Frequency Sensing with Genetic Manifestations for Assessing Circadian Rhythm Dysregulation from Mouth Breathing</strong></p>
+                                <p><strong>Jie Cao</strong>, S. Li, X. Wang, Y. Guo, M. Zhu and C. Gu.</p>
+                                <p><strong>[Journal]</strong> <em>Electromagnetic Science</em>, in press, doi: 10.23919/emsci.2025.0065,
+                                    2026.</p>
+                                <p class="pub-links">[<a href="https://www.emscience.org/en/article/id/27156eb5-a6b2-47f5-b559-331a5f9d4f77">Link</a>]
+                                </p>
+                            </div>
+                        </div>
 
-            <!-- [13] -->
-            <!-- <div class="pub-item">
-                <div class="pub-img-box">
-                    <span>Image<br>150x100</span>
-                </div>
-                <div class="pub-content">
-                    <p><strong>Non-contact Detection of Cheyne-Stokes Respiration and Sighs with Biomedical Microwave Radar</strong></p>
-                    <p>M. Yuan, <strong>Jie Cao</strong>, L. Wang and C. Gu.</p>
-                    <p><strong>[Conference]</strong> <em>IEEE MTT-S IWS</em>, Shenzhen, China, May 2026.</p>
-                    <p class="pub-links">[<a href="#">Link</a>]</p>
-                </div>
-            </div> -->
 
-            <!-- [12] -->
-            <div class="pub-item">
-                <div class="pub-img-box">
-                     <img src="paper_pics/IMbioC2026.jpg" alt="Contactless Detection of Atrial Fibrillation in Stroke Patients Based on Bayes Probability Model with Microwave Biomedical Radar" class="responsive-img">
-                </div>
-                <div class="pub-content">
-                    <p><strong>Contactless Detection of Atrial Fibrillation in Stroke Patients Based on Bayes Probability Model with Microwave Biomedical Radar</strong></p>
-                    <p><strong>Jie Cao</strong>, L. Wen, L. Wang and C. Gu.</p>
-                    <p><strong>[Conference]</strong> <em>IEEE IMBioC</em>, Cosenza, Italy, Apr. 2026.</p>
-                    <p class="pub-links">[<a href="https://ieeexplore.ieee.org/document/11541174">Link</a>]</p>
-                </div>
+                        <!-- [11] -->
+                        <div class="pub-item">
+                            <div class="pub-img-box">
+                                <img src="paper_pics/TMTT2026.jpg"
+                                    alt="Contactless Cardiac Detection of Arrhythmia based on Distribution Encoding Network with Microwave Biomedical Radar"
+                                    class="responsive-img">
+                            </div>
+                            <div class="pub-content">
+                                <p><strong>Contactless Cardiac Detection of Arrhythmia based on Distribution Encoding
+                                        Network with Microwave Biomedical Radar</strong></p>
+                                <p><strong>Jie Cao</strong>, L. Wen, S. Dong, Y. Li, L. Wu, Y. Guo, Z. Zeng, Q. Cao, K.
+                                    Chen and C. Gu.</p>
+                                <p><strong>[Journal]</strong> <em>IEEE Transactions on Microwave Theory and Techniques</em>, vol. 74, no. 4, pp. 3135–3148, Apr.
+                                    2026.</p>
+                                <p class="pub-links">[<a href="https://ieeexplore.ieee.org/document/11398845">Link</a>]
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- [8] -->
+                        <div class="pub-item">
+                            <div class="pub-img-box">
+                                <img src="paper_pics/TMTT2025.jpg"
+                                    alt="Accurate Phase Accumulation Technique under Vector Cross-multiplication Framework for High-accuracy Displacement Motion Sensing"
+                                    class="responsive-img">
+                            </div>
+                            <div class="pub-content">
+                                <p><strong>Accurate Phase Accumulation Technique under Vector Cross-multiplication
+                                        Framework for High-accuracy Displacement Motion Sensing</strong></p>
+                                <p><strong>Jie Cao</strong>, J. Liu, K. Zheng and C. Gu.</p>
+                                <p><strong>[Journal]</strong> <em>IEEE Transactions on Microwave Theory and Techniques</em>, vol. 73, no. 11, pp. 9279-9291, Nov.
+                                    2025.</p>
+                                <p class="pub-links">[<a href="https://ieeexplore.ieee.org/document/11128940">Link</a>]
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- [2] -->
+                        <div class="pub-item">
+                            <div class="pub-img-box">
+                                <img src="paper_pics/EMT2025.jpg" alt="基于匹配滤波的非接触生命体征测量" class="responsive-img">
+                            </div>
+                            <div class="pub-content">
+                                <p><strong>基于匹配滤波的非接触生命体征测量</strong></p>
+                                <p><strong>曹杰</strong>，温力，唐敏，郭宜竞，顾昌展.</p>
+                                <p><strong>[Journal]</strong> <em>电子测量技术</em>, 2025, 48(01):39-45.</p>
+                                <p class="pub-links"> [<a
+                                        href="https://link.cnki.net/doi/10.19651/j.cnki.emt.2416992">Link</a>] </p>
+                            </div>
+                        </div>
+                        
+                        <!-- [10] -->
+                        <div class="pub-item">
+                            <div class="pub-img-box">
+                                <img src="paper_pics/TMTT_WL2026.jpg"
+                                    alt="Robust and Adaptive DC Offset Calibration in Microwave Sensing Systems for Long-Term Microwave Cardiogram Detection"
+                                    class="responsive-img">
+                            </div>
+                            <div class="pub-content">
+                                <p><strong>Robust and Adaptive DC Offset Calibration in Microwave Sensing Systems for
+                                        Long-Term Microwave Cardiogram Detection</strong></p>
+                                <p>L. Wen, <strong>Jie Cao</strong>, Y. Guo, Z. Zeng, Q. Cao, K. Chen and C. Gu.</p>
+                                <p><strong>[Journal]</strong> <em>IEEE Transactions on Microwave Theory and Techniques</em>, vol. 74, no. 2, pp. 1756–1769, Feb.
+                                    2026.</p>
+                                <p class="pub-links">[<a href="https://ieeexplore.ieee.org/document/11264617">Link</a>]
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- [10] -->
+                        <div class="pub-item">
+                            <div class="pub-img-box">
+                                <img src="paper_pics/BIM_YL2026.jpg"
+                                    alt="Unobtrusive Cardiac Activity Monitoring Using Biomedical Radar: Principles, Applications, and Perspectives"
+                                    class="responsive-img">
+                            </div>
+                            <div class="pub-content">
+                                <p><strong>Unobtrusive Cardiac Activity Monitoring Using Biomedical Radar: Principles, Applications, and Perspectives</strong></p>
+                                <p>Y. Li, <strong>Jie Cao</strong>, Q. Chen, L. Zhang and C. Gu.</p>
+                                <p><strong>[Journal]</strong> <em>Bioelectromagnetics in Medicine</em>, vol. 1, no. 1, Aug.
+                                    2026.</p>
+                                <p class="pub-links">[<a href="https://www.lumoscience.com/Journals/BiM/articles/bim.2026.v1.i1.004">Link</a>]
+                                </p>
+                            </div>
+                        </div>
+
+                    </div>
+                </details>
+
+                <!-- ==================== Conference Papers ==================== -->
+                <details class="pub-category" open>
+                    <summary>
+                        <h3>Conference Papers (10)</h3>
+                    </summary>
+                    <div class="pub-list">
+
+                        <!-- [15] -->
+                        <!-- <div class="pub-item">
+                            <div class="pub-img-box">
+                                <span>Image<br>150x100</span>
+                            </div>
+                            <div class="pub-content">
+                                <p><strong>Millimeter-Wave Radar-Based Unobtrusive Arrhythmia Classification Using Deep Learning</strong></p>
+                                <p>Y. Li, Z. Huang, <strong>Jie Cao</strong>, X. Xu, Q. Chen, L. Zhang, and C. Gu.</p>
+                                <p><strong>[Conference]</strong> <em>56th EuMC</em>, London, UK, Oct. 2026.</p>
+                                <p class="pub-links">[<a href="#">Link</a>]</p>
+                            </div>
+                        </div> -->
+
+                        <!-- [14] -->
+                        <!-- <div class="pub-item">
+                            <div class="pub-img-box">
+                                <span>Image<br>150x100</span>
+                            </div>
+                            <div class="pub-content">
+                                <p><strong>Non-Contact Cardiac Activity Monitoring via mmWave Radar for Arrhythmia Recognition and STI Estimation</strong></p>
+                                <p>Y. Li, Z. Huang, <strong>Jie Cao</strong>, X. Xu, Q. Chen, X. Yuan, J. Chen, L. Zhang, and C. Gu.</p>
+                                <p><strong>[Conference]</strong> <em>IEEE MTT-S IWS</em>, Shenzhen, China, May 2026.</p>
+                                <p class="pub-links">[<a href="#">Link</a>]</p>
+                            </div>
+                        </div> -->
+
+                        <!-- [13] -->
+                        <!-- <div class="pub-item">
+                            <div class="pub-img-box">
+                                <span>Image<br>150x100</span>
+                            </div>
+                            <div class="pub-content">
+                                <p><strong>Non-contact Detection of Cheyne-Stokes Respiration and Sighs with Biomedical Microwave Radar</strong></p>
+                                <p>M. Yuan, <strong>Jie Cao</strong>, L. Wang and C. Gu.</p>
+                                <p><strong>[Conference]</strong> <em>IEEE MTT-S IWS</em>, Shenzhen, China, May 2026.</p>
+                                <p class="pub-links">[<a href="#">Link</a>]</p>
+                            </div>
+                        </div> -->
+
+                        <!-- [12] -->
+                        <div class="pub-item">
+                            <div class="pub-img-box">
+                                <img src="paper_pics/IMbioC2026.jpg"
+                                    alt="Contactless Detection of Atrial Fibrillation in Stroke Patients Based on Bayes Probability Model with Microwave Biomedical Radar"
+                                    class="responsive-img">
+                            </div>
+                            <div class="pub-content">
+                                <p><strong>Contactless Detection of Atrial Fibrillation in Stroke Patients Based on
+                                        Bayes Probability Model with Microwave Biomedical Radar</strong></p>
+                                <p><strong>Jie Cao</strong>, L. Wen, L. Wang and C. Gu.</p>
+                                <p><strong>[Conference]</strong> <em>IEEE MTT-S International Microwave Biomedical Conference (IMBioC)</em>, Cosenza, Italy, Apr. 2026.</p>
+                                <p class="pub-links">[<a href="https://ieeexplore.ieee.org/document/11541174">Link</a>]
+                                </p>
+                            </div>
+                        </div>
+                        
+                        <!-- [7] -->
+                        <div class="pub-item">
+                            <div class="pub-img-box">
+                                <img src="paper_pics/IMWSAMP_2025.jpg"
+                                    alt="Arrhythmia Classification Based on Distribution Encoding Network with Biomedical Radar"
+                                    class="responsive-img">
+                            </div>
+                            <div class="pub-content">
+                                <p><strong>Arrhythmia Classification Based on Distribution Encoding Network with
+                                        Biomedical Radar</strong> <em style="color: red;">(2rd Prize of Best Student
+                                        Paper Award)</em></p>
+                                <p><strong>Jie Cao</strong>, L. Wen, S. Dong, M. Tang, Y. Guo, C. Shen and C. Gu.</p>
+                                <p><strong>[Conference]</strong> <em>IEEE MTT-S International Microwave Workshop Series On Advanced Materials and Processes for RF and THz Applications
+                                (IMWS-AMP)</em>, Wuxi, China, Jul. 2025.
+                                </p>
+                                <p class="pub-links">[<a href="https://ieeexplore.ieee.org/document/11136642/">Link</a>]
+                                </p>
+                            </div>
+                        </div>
+
+                                                <!-- [4] -->
+                        <div class="pub-item">
+                            <div class="pub-img-box">
+                                <img src="paper_pics/IWS_disp2025.jpg"
+                                    alt="Displacement Motion Detection Based on Accurate Phase Accumulation Technique with Reduced Sampling Rate"
+                                    class="responsive-img">
+                            </div>
+                            <div class="pub-content">
+                                <p><strong>Displacement Motion Detection Based on Accurate Phase Accumulation Technique
+                                        with Reduced Sampling Rate</strong> <em style="color: red;">(2nd Prize of Best
+                                        Student Paper Award)</em></p>
+                                <p><strong>Jie Cao</strong>, J. Liu, K. Zheng and C. Gu.</p>
+                                <p><strong>[Conference]</strong> <em>IEEE MTT-S International Wireless Symposium (IWS)</em>, Xi'an, China, May 2025.</p>
+                                <p class="pub-links">[<a href="https://ieeexplore.ieee.org/document/11177669/">Link</a>]
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- [3] -->
+                        <div class="pub-item">
+                            <div class="pub-img-box">
+                                <img src="paper_pics/IWS_rat2025.jpg"
+                                    alt="Microwave Bio-Radar Monitoring of Gene-controlled Activity Changes of Normal and Mouth-breathing Rats"
+                                    class="responsive-img">
+                            </div>
+                            <div class="pub-content">
+                                <p><strong>Microwave Bio-Radar Monitoring of Gene-controlled Activity Changes of Normal
+                                        and Mouth-breathing Rats</strong></p>
+                                <p><strong>Jie Cao</strong>, S. Dong, S. Li, X. Wang, M. Zhu and C. Gu.</p>
+                                <p><strong>[Conference]</strong> <em>IEEE MTT-S International Wireless Symposium (IWS)</em>, Xi'an, China, May 2025.</p>
+                                <p class="pub-links">[<a href="https://ieeexplore.ieee.org/document/11177955">Link</a>]
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- [1] -->
+                        <div class="pub-item">
+                            <div class="pub-img-box">
+                                <img src="paper_pics/ICMMT2024.jpg"
+                                    alt="A Novel Contactless Concentration Evaluation Technique Using Millimeter-Wave Radar"
+                                    class="responsive-img">
+                            </div>
+                            <div class="pub-content">
+                                <p><strong>A Novel Contactless Concentration Evaluation Technique Using Millimeter-Wave
+                                        Radar</strong></p>
+                                <p><strong>Jie Cao</strong>, Y. Li, J. Liu, and C. Gu.</p>
+                                <p><strong>[Conference]</strong> <em>International Conference on Microwave and Millimeter Wave Technology (ICMMT)</em>, Beijing, China, May 2024.</p>
+                                <p class="pub-links">[<a href="https://ieeexplore.ieee.org/document/10672434">Link</a>]
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- [14] -->
+                        <div class="pub-item">
+                            <div class="pub-img-box">
+                                <img src="paper_pics/IWS_YL2026.jpg"
+                                    alt="mmWave Radar-Based Non-Contact Cardiac Activity Monitoring for Arrhythmia Detection and Systolic Time Interval
+                                Estimation"
+                                    class="responsive-img">
+                            </div>
+                            <div class="pub-content">
+                                <p><strong>mmWave Radar-Based Non-Contact Cardiac Activity Monitoring for Arrhythmia Detection and Systolic Time Interval
+                                Estimation</strong>
+                                <em style="color: red;">(2rd Prize of Flash Best Paper Award)</em></p>
+                                <p>Y. Li, Z. Huang, <strong>Jie Cao</strong>, X. Xu, Q. Chen, X. Yuan, J. Chen, L. Zhang, and C. Gu.</p>
+                                <p><strong>[Conference]</strong> <em>IEEE MTT-S International Wireless Symposium (IWS)</em>, Shenzhen, China, May 2026.</p>
+                                <p class="pub-links">[<a href="https://ieeexplore.ieee.org/document/11674681">Link</a>]</p>
+                            </div>
+                        </div> 
+
+                        <!-- [13] -->
+                        <div class="pub-item">
+                            <div class="pub-img-box">
+                                <img src="paper_pics/IWS_MY2026.jpg"
+                                    alt="Non-contact Detection of Cheyne-Stokes Respiration and Sighs with Biomedical Microwave Radar"
+                                    class="responsive-img">
+                            </div>
+                            <div class="pub-content">
+                                <p><strong>Non-contact Detection of Cheyne-Stokes Respiration and Sighs with Biomedical Microwave Radar</strong>
+                                <em style="color: red;">(IEEE MVC Competition Finalist)</em></p>
+                                <p>M. Yuan, <strong>Jie Cao</strong>, L. Wang and C. Gu.</p> 
+                                <p><strong>[Conference]</strong> <em>IEEE MTT-S International Wireless Symposium (IWS)</em>, Shenzhen, China, May 2026.</p>
+                                <p class="pub-links">[<a href="https://ieeexplore.ieee.org/document/11674705">Link</a>]</p>
+                            </div>
+                        </div>
+
+                        <!-- [9] -->
+                        <div class="pub-item">
+                            <div class="pub-img-box">
+                                <img src="paper_pics/APMC2025.jpg"
+                                    alt="A Knowledge-Fusion Deep Learning Approach for Premature Beat Classification Using mmWave Radar in Clinical Settings"
+                                    class="responsive-img">
+                            </div>
+                            <div class="pub-content">
+                                <p><strong>A Knowledge-Fusion Deep Learning Approach for Premature Beat Classification
+                                        Using mmWave Radar in Clinical Settings</strong></p>
+                                <p>Y. Li, G. Xue, <strong>Jie Cao</strong>, X. Xu, Q. Chen, L. Zhang and C. Gu.</p>
+                                <p><strong>[Conference]</strong> <em>Asia-Pacific Microwave Conference (APMC)</em>, Jeju Island, Korea, Dec. 2025.</p>
+                                <p class="pub-links">[<a href="https://ieeexplore.ieee.org/document/11376685">Link</a>]
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- [6] -->
+                        <div class="pub-item">
+                            <div class="pub-img-box">
+                                <img src="paper_pics/IWS_WL2025.jpg"
+                                    alt="Utilizing Biomedical Radar in Clinical Doppler Cardiographic Detection of Atrial Arrhythmias"
+                                    class="responsive-img">
+                            </div>
+                            <div class="pub-content">
+                                <p><strong>Utilizing Biomedical Radar in Clinical Doppler Cardiographic Detection of
+                                        Atrial Arrhythmias</strong></p>
+                                <p>L. Wen, <strong>Jie Cao</strong>, Z. Zeng, Q. Cao, K. Chen and C. Gu.</p>
+                                <p><strong>[Conference]</strong> <em>IEEE MTT-S International Wireless Symposium (IWS)</em>, Xi'an, China, May 2025.</p>
+                                <p class="pub-links">[<a href="https://ieeexplore.ieee.org/document/11177740">Link</a>]
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- [5] -->
+                        <div class="pub-item">
+                            <div class="pub-img-box">
+                                <img src="paper_pics/ICMMT2025.jpg"
+                                    alt="Noncontact Atrial Fibrillation Detection Utilizing Convolutional Neural Network Based on Doppler Biomedical Radar"
+                                    class="responsive-img">
+                            </div>
+                            <div class="pub-content">
+                                <p><strong>Noncontact Atrial Fibrillation Detection Utilizing Convolutional Neural
+                                        Network Based on Doppler Biomedical Radar</strong></p>
+                                <p>W. Gao, L. Meng, <strong>Jie Cao</strong>, L. Wen, Z. Zi, Q. Cao, K. Chen and C. Gu.
+                                </p>
+                                <p><strong>[Conference]</strong> <em>International Conference on Microwave and Millimeter Wave Technology (ICMMT)</em>, Xi'an, China, May 2025.</p>
+                                <p class="pub-links">[<a href="https://ieeexplore.ieee.org/document/11188684">Link</a>]
+                                </p>
+                            </div>
+                        </div>
+
+                    </div>
+                </details>
+
             </div>
-
-            <!-- [11] -->
-            <div class="pub-item">
-                <div class="pub-img-box">
-                     <img src="paper_pics/TMTT2026.jpg" alt="Contactless Cardiac Detection of Arrhythmia based on Distribution Encoding Network with Microwave Biomedical Radar" class="responsive-img">
-                </div>
-                <div class="pub-content">
-                    <p><strong>Contactless Cardiac Detection of Arrhythmia based on Distribution Encoding Network with Microwave Biomedical Radar</strong></p>
-                    <p><strong>Jie Cao</strong>, L. Wen, S. Dong, Y. Li, L. Wu, Y. Guo, Z. Zeng, Q. Cao, K. Chen and C. Gu.</p>
-                    <p><strong>[Journal]</strong> <em>IEEE TMTT</em>, vol. 74, no. 4, pp. 3135–3148, Apr. 2026.</p>
-                    <p class="pub-links">[<a href="https://ieeexplore.ieee.org/document/11398845">Link</a>]</p>
-                </div>
-            </div>
-
-            <!-- [10] -->
-            <div class="pub-item">
-                <div class="pub-img-box">
-                    <img src="paper_pics/TMTT_WL2026.jpg" alt="Robust and Adaptive DC Offset Calibration in Microwave Sensing Systems for Long-Term Microwave Cardiogram Detection" class="responsive-img">
-                </div>
-                <div class="pub-content">
-                    <p><strong>Robust and Adaptive DC Offset Calibration in Microwave Sensing Systems for Long-Term Microwave Cardiogram Detection</strong></p>
-                    <p>L. Wen, <strong>Jie Cao</strong>, Y. Guo, Z. Zeng, Q. Cao, K. Chen and C. Gu.</p>
-                    <p><strong>[Journal]</strong> <em>IEEE TMTT</em>, vol. 74, no. 2, pp. 1756–1769, Feb. 2026.</p>
-                    <p class="pub-links">[<a href="https://ieeexplore.ieee.org/document/11264617">Link</a>]</p>
-                </div>
-            </div>
-
-            <!-- [9] -->
-            <div class="pub-item">
-                <div class="pub-img-box">
-                     <img src="paper_pics/APMC2025.jpg" alt="A Knowledge-Fusion Deep Learning Approach for Premature Beat Classification Using mmWave Radar in Clinical Settings" class="responsive-img">
-                </div>
-                <div class="pub-content">
-                    <p><strong>A Knowledge-Fusion Deep Learning Approach for Premature Beat Classification Using mmWave Radar in Clinical Settings</strong></p>
-                    <p>Y. Li, G. Xue, <strong>Jie Cao</strong>, X. Xu, Q. Chen, L. Zhang and C. Gu.</p>
-                    <p><strong>[Conference]</strong> <em>IEEE APMC</em>, Jeju Island, Korea, Dec. 2025.</p>
-                    <p class="pub-links">[<a href="https://ieeexplore.ieee.org/document/11376685">Link</a>]</p>
-                </div>
-            </div>
-
-            <!-- [8] -->
-            <div class="pub-item">
-                <div class="pub-img-box">
-                    <img src="paper_pics/TMTT2025.jpg" alt="Accurate Phase Accumulation Technique under Vector Cross-multiplication Framework for High-accuracy Displacement Motion Sensing" class="responsive-img">
-                </div>
-                <div class="pub-content">
-                    <p><strong>Accurate Phase Accumulation Technique under Vector Cross-multiplication Framework for High-accuracy Displacement Motion Sensing</strong></p>
-                    <p><strong>Jie Cao</strong>, J. Liu, K. Zheng and C. Gu.</p>
-                    <p><strong>[Journal]</strong> <em>IEEE TMTT</em>, vol. 73, no. 11, pp. 9279-9291, Nov. 2025.</p>
-                    <p class="pub-links">[<a href="https://ieeexplore.ieee.org/document/11128940">Link</a>]</p>
-                </div>
-            </div>
-
-            <!-- [7] -->
-            <div class="pub-item">
-                <div class="pub-img-box">
-                     <img src="paper_pics/IMWSAMP_2025.jpg" alt="Arrhythmia Classification Based on Distribution Encoding Network with Biomedical Radar" class="responsive-img">
-                </div>
-                <div class="pub-content">
-                    <p><strong>Arrhythmia Classification Based on Distribution Encoding Network with Biomedical Radar</strong> <em style="color: red;">(2rd Prize of Best Student Paper Award)</em></p>
-                    <p><strong>Jie Cao</strong>, L. Wen, S. Dong, M. Tang, Y. Guo, C. Shen and C. Gu.</p>
-                    <p><strong>[Conference]</strong> <em>IEEE MTT-S IMWS-AMP</em>, Wuxi, China, Jul. 2025.</p>
-                    <p class="pub-links">[<a href="https://ieeexplore.ieee.org/document/11136642/">Link</a>]</p>
-                </div>
-            </div>
-
-            <!-- [6] -->
-            <div class="pub-item">
-                <div class="pub-img-box">
-                     <img src="paper_pics/IWS_WL2025.jpg" alt="Utilizing Biomedical Radar in Clinical Doppler Cardiographic Detection of Atrial Arrhythmias" class="responsive-img">
-                </div>
-                <div class="pub-content">
-                    <p><strong>Utilizing Biomedical Radar in Clinical Doppler Cardiographic Detection of Atrial Arrhythmias</strong></p>
-                    <p>L. Wen, <strong>Jie Cao</strong>, Z. Zeng, Q. Cao, K. Chen and C. Gu.</p>
-                    <p><strong>[Conference]</strong> <em>IEEE MTT-S IWS</em>, Xi'an, China, May 2025.</p>
-                    <p class="pub-links">[<a href="https://ieeexplore.ieee.org/document/11177740">Link</a>]</p>
-                </div>
-            </div>
-
-            <!-- [5] -->
-            <div class="pub-item">
-                <div class="pub-img-box">
-                     <img src="paper_pics/ICMMT2025.jpg" alt="Noncontact Atrial Fibrillation Detection Utilizing Convolutional Neural Network Based on Doppler Biomedical Radar" class="responsive-img">
-                </div>
-                <div class="pub-content">
-                    <p><strong>Noncontact Atrial Fibrillation Detection Utilizing Convolutional Neural Network Based on Doppler Biomedical Radar</strong></p>
-                    <p>W. Gao, L. Meng, <strong>Jie Cao</strong>, L. Wen, Z. Zi, Q. Cao, K. Chen and C. Gu.</p>
-                    <p><strong>[Conference]</strong> <em>ICMMT</em>, Xi'an, China, May 2025.</p>
-                    <p class="pub-links">[<a href="https://ieeexplore.ieee.org/document/11188684">Link</a>]</p>
-                </div>
-            </div>
-
-            <!-- [4] -->
-            <div class="pub-item">
-                <div class="pub-img-box">
-                     <img src="paper_pics/IWS_disp2025.jpg" alt="Displacement Motion Detection Based on Accurate Phase Accumulation Technique with Reduced Sampling Rate" class="responsive-img">
-                </div>
-                <div class="pub-content">
-                    <p><strong>Displacement Motion Detection Based on Accurate Phase Accumulation Technique with Reduced Sampling Rate</strong> <em style="color: red;">(2nd Prize of Best Student Paper Award)</em></p>
-                    <p><strong>Jie Cao</strong>, J. Liu, K. Zheng and C. Gu.</p>
-                    <p><strong>[Conference]</strong> <em>IEEE MTT-S IWS</em>, Xi'an, China, May 2025.</p>
-                    <p class="pub-links">[<a href="https://ieeexplore.ieee.org/document/11177669/">Link</a>]</p>
-                </div>
-            </div>
-
-            <!-- [3] -->
-            <div class="pub-item">
-                <div class="pub-img-box">
-                    <img src="paper_pics/IWS_rat2025.jpg" alt="Microwave Bio-Radar Monitoring of Gene-controlled Activity Changes of Normal and Mouth-breathing Rats" class="responsive-img">
-                </div>
-                <div class="pub-content">
-                    <p><strong>Microwave Bio-Radar Monitoring of Gene-controlled Activity Changes of Normal and Mouth-breathing Rats</strong></p>
-                    <p><strong>Jie Cao</strong>, S. Dong, S. Li, X. Wang, M. Zhu and C. Gu.</p>
-                    <p><strong>[Conference]</strong> <em>IEEE MTT-S IWS</em>, Xi'an, China, May 2025.</p>
-                    <p class="pub-links">[<a href="https://ieeexplore.ieee.org/document/11177955">Link</a>]</p>
-                </div>
-            </div>
-
-            <!-- [2] -->
-            <div class="pub-item">
-                <div class="pub-img-box">
-                    <img src="paper_pics/EMT2025.jpg" alt="基于匹配滤波的非接触生命体征测量" class="responsive-img">
-                </div>
-                <div class="pub-content">
-                    <p><strong>基于匹配滤波的非接触生命体征测量</strong></p>
-                    <p><strong>曹杰</strong>，温力，唐敏，郭宜竞，顾昌展.</p>
-                    <p><strong>[Journal]</strong> <em>电子测量技术</em>, 2025, 48(01):39-45.</p>
-                    <p class="pub-links"> [<a href="https://link.cnki.net/doi/10.19651/j.cnki.emt.2416992">Link</a>] </p>
-                </div>
-            </div>
-
-            <!-- [1] -->
-            <div class="pub-item">
-                <div class="pub-img-box">
-                    <img src="paper_pics/ICMMT2024.jpg" alt="A Novel Contactless Concentration Evaluation Technique Using Millimeter-Wave Radar" class="responsive-img">
-                </div>
-                <div class="pub-content">
-                    <p><strong>A Novel Contactless Concentration Evaluation Technique Using Millimeter-Wave Radar</strong></p>
-                    <p><strong>Jie Cao</strong>, Y. Li, J. Liu, and C. Gu.</p>
-                    <p><strong>[Conference]</strong> <em>ICMMT</em>, Beijing, China, May 2024.</p>
-                    <p class="pub-links">[<a href="https://ieeexplore.ieee.org/document/10672434">Link</a>]</p>
-                </div>
-            </div>
-
-        </div>
+        </details>
     </section>
 
     <section id="patents">
-        <h2>Patents ✒️</h2>
-        <ul class="patent-list">
-            <li>一种基于毫米波的专注度评价方法及系统, CN202311780897.X</li>
-            <li>一种抗雷达IQ失衡的鲁棒矢量解析解调方法, CN202410162309.4</li>
-            <li>一种可鉴定初相位的高动态多普勒位移运动的测量方法, CN202510354603.X</li>
-            <li>一种基于分布编码网络的生物医学雷达心律失常分类方法, CN202510734888.X</li>
-            <li>基于预训练-微调范式的心肺雷达信号检测系统, CN202511510181.7</li>
-            <li>基于射频感知的儿童口呼吸监测系统, CN202511650917.0</li>
-        </ul>
+        <details class="section-details">
+            <summary>
+                <h2>Patents ✒️</h2>
+            </summary>
+            <div class="section-content">
+                <ul class="patent-list">
+                    <li>一种基于毫米波的专注度评价方法及系统, CN202311780897.X (Granted)</li>
+                    <li>一种抗雷达IQ失衡的鲁棒矢量解析解调方法, CN202410162309.4</li>
+                    <li>一种可鉴定初相位的高动态多普勒位移运动的测量方法, CN202510354603.X</li>
+                    <li>一种基于分布编码网络的生物医学雷达心律失常分类方法, CN202510734888.X</li>
+                    <li>基于预训练-微调范式的心肺雷达信号检测系统, CN202511510181.7</li>
+                    <li>基于射频感知的儿童口呼吸监测系统, CN202511650917.0 (Granted)</li>
+                </ul>
+            </div>
+        </details>
     </section>
 
     <section id="grants-awards">
-        <h2>Grants & Awards 🏆</h2>
-        <ul class="service-list">
-            <li><strong>May 2026:</strong> 2rd Prize of Flash Best Paper Award | IEEE MTT-S IWS, Shenzhen, China</li>
-            <li><strong>Apr. 2026,:</strong> PhD student Initiative Program | IEEE IMBioC, Cosenza, Italy</li>
-            <li><strong>Mar. 2026:</strong> Ceyear Scholarship | SJTU, Shanghai, China</li>
-            <li><strong>Jul. 2025:</strong> 2rd Prize of Best Student Paper Award | IEEE MTT-S IMWS-AMP, Wuxi, China</li>
-            <li><strong>Jul. 2025:</strong> PhD Travel Grant | IEEE MTT-S IMWS-AMP, Wuxi, China</li>
-            <li><strong>May 2025:</strong> 3rd Prize of Best Student Paper Award | IEEE MTT-S IWS, Xi'an, China</li>
-            <li><strong>Sep. 2022:</strong> National Scholarship | HITSZ, Shenzhen, China</li>
-        </ul>
+        <details class="section-details">
+            <summary>
+                <h2>Grants & Awards 🏆</h2>
+            </summary>
+            <div class="section-content">
+                <ul class="service-list">
+                    <li><strong>May 2026:</strong> 2rd Prize of Flash Best Paper Award | IEEE MTT-S IWS, Shenzhen, China
+                    </li>
+                    <li><strong>Apr. 2026:</strong> PhD student Initiative Program | IEEE IMBioC, Cosenza, Italy</li>
+                    <li><strong>Mar. 2026:</strong> Ceyear Scholarship | SJTU, Shanghai, China</li>
+                    <li><strong>Jul. 2025:</strong> 2rd Prize of Best Student Paper Award | IEEE MTT-S IMWS-AMP, Wuxi,
+                        China</li>
+                    <li><strong>Jul. 2025:</strong> PhD Travel Grant | IEEE MTT-S IMWS-AMP, Wuxi, China</li>
+                    <li><strong>May 2025:</strong> 3rd Prize of Best Student Paper Award | IEEE MTT-S IWS, Xi'an, China
+                    </li>
+                    <li><strong>Sep. 2022:</strong> National Scholarship | HITSZ, Shenzhen, China</li>
+                </ul>
+            </div>
+        </details>
     </section>
 
     <section id="academic-services">
-        <h2>Academic Services 🔖</h2>
-        <ul class="service-list">
-            <li><strong>Reviewer (Since Jul. 2026):</strong> IEEE Transactions on Microwave Theory and Techniques</li>
-            <li><strong>Reviewer (Since Oct. 2025):</strong> IEEE Journal of Biomedical and Health Informatics</li>
-            <li><strong>Reviewer (Since Aug. 2024):</strong> IEEE Transactions on Instrumentation and Measurement (2025 Outstanding Reviewer)</li>
-        </ul>
+        <details class="section-details">
+            <summary>
+                <h2>Academic Services 🔖</h2>
+            </summary>
+            <div class="section-content">
+                <ul class="service-list">
+                    <li><strong>Reviewer (Since Jul. 2026):</strong> IEEE Transactions on Microwave Theory and
+                        Techniques</li>
+                    <li><strong>2025 Outstanding Reviewer (Jan. 2026):</strong> IEEE Transactions on Instrumentation and
+                    Measurement</li>
+                    <li><strong>Reviewer (Since Oct. 2025):</strong> IEEE Journal of Biomedical and Health Informatics
+                    </li>
+                    <li><strong>Reviewer (Since Aug. 2024):</strong> IEEE Transactions on Instrumentation and
+                        Measurement</li>
+                </ul>
+            </div>
+        </details>
     </section>
 
     <!-- 这是一个隐藏的容器，用于在点击时显示全图 -->
@@ -506,12 +848,28 @@
                     modal.style.display = "none";
                 }
             }
+
+            // 点击导航栏链接时，如果目标 section 处于折叠状态，则自动将其展开
+            const navLinks = document.querySelectorAll("nav a");
+            navLinks.forEach(function (link) {
+                link.addEventListener("click", function () {
+                    const targetId = this.getAttribute("href").substring(1);
+                    const targetSection = document.getElementById(targetId);
+                    if (targetSection) {
+                        const details = targetSection.querySelector("details.section-details");
+                        if (details) {
+                            details.open = true;
+                        }
+                    }
+                });
+            });
         });
     </script>
 
     <footer>
-        <p>&copy; 2026 Jie Cao. Last updated: July 2026.</p>
+        <p>&copy; 2026 Jie Cao. Last updated: Oct 2026.</p>
     </footer>
 
 </body>
+
 </html>
